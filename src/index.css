@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&family=Montserrat:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@400;500;700&family=Lato:wght@300;400;700&family=Oswald:wght@300;400;700&family=Raleway:wght@300;400;500;700&family=Nunito:wght@300;400;600;700&family=Quicksand:wght@400;500;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,650;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Dynamic custom branding variables defaults */
+  --brand-blue: #1d9bf0;
+  --brand-blue-hover: #1a8cd8;
+  --brand-font: "Inter", ui-sans-serif, system-ui, sans-serif;
+  color-scheme: light;
+  
+  /* Fallbacks - Light Theme default */
+  --brand-bg: #fcfcfd;
+  --brand-card: #ffffff;
+  --brand-border: #eef1f2;
+  --brand-text: #0f1419;
+  --brand-text-muted: #536471;
+}
+
+/* Light Theme overrides */
+.theme-light {
+  color-scheme: light;
+  --brand-bg: #fcfcfd;
+  --brand-card: #ffffff;
+  --brand-border: #eef1f2;
+  --brand-text: #0f1419;
+  --brand-text-muted: #536471;
+}
+
+/* Dim Theme overrides */
+.theme-dim {
+  color-scheme: dark;
+  --brand-bg: #15202b;
+  --brand-card: #1e2732;
+  --brand-border: #38444d;
+  --brand-text: #f7f9f9;
+  --brand-text-muted: #8899a6;
+}
+
+/* Black Theme overrides */
+.theme-dark {
+  color-scheme: dark;
+  --brand-bg: #000000;
+  --brand-card: #16181c;
+  --brand-border: #2f3336;
+  --brand-text: #e7e9ea;
+  --brand-text-muted: #71767b;
+}
+
+@theme {
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-card: var(--brand-card);
+  --color-brand-border: var(--brand-border);
+  --color-brand-text: var(--brand-text);
+  --color-brand-text-muted: var(--brand-text-muted);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-hover: var(--brand-blue-hover);
+
+  --font-sans: var(--brand-font);
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+  font-family: var(--brand-font);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Adjust scrollbar dynamically based on content colors */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--brand-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-text-muted);
+}
